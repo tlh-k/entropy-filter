@@ -1,0 +1,245 @@
+#6 0.0s Downloading  [>                                        ]  54.4MB/194MB#5 0.0s Downloading  [========================================]  100%
+#7 0.1s Downloading  [=>                                       ]  27.5MB/199MB#7 0.1s Downloading  [========================================]  100%
+#6 0.2s Downloading  [==>                                      ]  27.8MB/198MB#8 0.2s Downloading  [========================================]  100%
+#5 0.3s Downloading  [===>                                     ]  32.0MB/100MB#9 0.3s Downloading  [========================================]  100%
+#8 0.4s Downloading  [====>                                    ]  86.2MB/167MB#5 0.4s Downloading  [========================================]  100%
+#6 0.5s Downloading  [=====>                                   ]  75.9MB/130MB#8 0.5s Downloading  [========================================]  100%
+#8 0.6s Downloading  [======>                                  ]  36.4MB/111MB#8 0.6s Downloading  [========================================]  100%
+#6 0.7s Downloading  [=======>                                 ]  34.1MB/135MB#8 0.7s Downloading  [========================================]  100%
+#9 0.8s Downloading  [========>                                ]  81.2MB/178MB#8 0.8s Downloading  [========================================]  100%
+#5 0.9s Downloading  [=========>                               ]  46.9MB/133MB#6 0.9s Downloading  [========================================]  100%
+#8 1.0s Downloading  [==========>                              ]  38.4MB/148MB#7 1.0s Downloading  [========================================]  100%
+#6 1.1s Downloading  [===========>                             ]  35.9MB/146MB#9 1.1s Downloading  [========================================]  100%
+#5 1.2s Downloading  [============>                            ]  68.1MB/193MB#9 1.2s Downloading  [========================================]  100%
+#5 1.3s Downloading  [=============>                           ]  23.6MB/116MB#5 1.3s Downloading  [========================================]  100%
+#9 1.4s Downloading  [==============>                          ]  95.2MB/181MB#9 1.4s Downloading  [========================================]  100%
+#7 1.5s Downloading  [===============>                         ]  12.1MB/177MB#7 1.5s Downloading  [========================================]  100%
+#8 1.6s Downloading  [================>                        ]  63.4MB/132MB#7 1.6s Downloading  [========================================]  100%
+#7 1.7s Downloading  [=================>                       ]  64.2MB/104MB#5 1.7s Downloading  [========================================]  100%
+#9 1.8s Downloading  [==================>                      ]  44.8MB/153MB#5 1.8s Downloading  [========================================]  100%
+#6 1.9s Downloading  [===================>                     ]  34.5MB/152MB#5 1.9s Downloading  [========================================]  100%
+#9 2.0s Downloading  [====================>                    ]  40.0MB/145MB#7 2.0s Downloading  [========================================]  100%
+#5 2.1s Downloading  [=====================>                   ]  51.5MB/160MB#5 2.1s Downloading  [========================================]  100%
+#9 2.2s Downloading  [======================>                  ]  28.9MB/133MB#7 2.2s Downloading  [========================================]  100%
+#5 2.3s Downloading  [=======================>                 ]  99.9MB/105MB#6 2.3s Downloading  [========================================]  100%
+#9 2.4s Downloading  [========================>                ]  26.7MB/156MB#6 2.4s Downloading  [========================================]  100%
+#6 2.5s Downloading  [=========================>               ]  17.6MB/135MB#6 2.5s Downloading  [========================================]  100%
+#9 2.6s Downloading  [==========================>              ]  41.2MB/155MB#6 2.6s Downloading  [========================================]  100%
+#5 2.7s Downloading  [===========================>             ]  74.0MB/130MB#8 2.7s Downloading  [========================================]  100%
+#9 2.8s Downloading  [============================>            ]  7.1MB/169MB#5 2.8s Downloading  [========================================]  100%
+#5 2.9s Downloading  [=============================>           ]  25.0MB/150MB#6 2.9s Downloading  [========================================]  100%
+#7 3.0s Downloading  [==============================>          ]  74.9MB/158MB#9 3.0s Downloading  [========================================]  100%
+#6 3.1s Downloading  [===============================>         ]  19.3MB/170MB#5 3.1s Downloading  [========================================]  100%
+#9 3.2s Downloading  [================================>        ]  52.2MB/126MB#5 3.2s Downloading  [========================================]  100%
+#7 3.3s Downloading  [=================================>       ]  49.0MB/131MB#9 3.3s Downloading  [========================================]  100%
+#5 3.4s Downloading  [==================================>      ]  98.7MB/166MB#7 3.4s Downloading  [========================================]  100%
+#5 3.5s Downloading  [===================================>     ]  55.1MB/178MB#5 3.5s Downloading  [========================================]  100%
+#7 3.6s Downloading  [====================================>    ]  11.1MB/104MB#8 3.6s Downloading  [========================================]  100%
+#5 3.7s Downloading  [=====================================>   ]  11.6MB/106MB#6 3.7s Downloading  [========================================]  100%
+#9 3.8s Downloading  [======================================>  ]  20.0MB/196MB#7 3.8s Downloading  [========================================]  100%
+#8 3.9s Downloading  [=======================================> ]  55.4MB/103MB#6 3.9s Downloading  [========================================]  100%
+#9 4.0s Downloading  [>                                        ]  36.9MB/105MB#8 4.0s Downloading  [========================================]  100%
+#6 4.1s Downloading  [=>                                       ]  37.6MB/173MB#5 4.1s Downloading  [========================================]  100%
+#8 4.2s Downloading  [==>                                      ]  45.9MB/148MB#9 4.2s Downloading  [========================================]  100%
+#9 4.3s Downloading  [===>                                     ]  26.3MB/160MB#5 4.3s Downloading  [========================================]  100%
+#5 4.4s Downloading  [====>                                    ]  82.9MB/161MB#8 4.4s Downloading  [========================================]  100%
+#7 4.5s Downloading  [=====>                                   ]  25.7MB/177MB#9 4.5s Downloading  [========================================]  100%
+#6 4.6s Downloading  [======>                                  ]  32.3MB/200MB#7 4.6s Downloading  [========================================]  100%
+#5 4.7s Downloading  [=======>                                 ]  37.9MB/149MB#7 4.7s Downloading  [========================================]  100%
+#7 4.8s Downloading  [========>                                ]  59.4MB/160MB#8 4.8s Downloading  [========================================]  100%
+#6 4.9s Downloading  [=========>                               ]  58.9MB/138MB#9 4.9s Downloading  [========================================]  100%
+#6 5.0s Downloading  [==========>                              ]  5.6MB/160MB#8 5.0s Downloading  [========================================]  100%
+#7 5.1s Downloading  [===========>                             ]  70.0MB/126MB#5 5.1s Downloading  [========================================]  100%
+#8 5.2s Downloading  [============>                            ]  60.7MB/157MB#9 5.2s Downloading  [========================================]  100%
+#5 5.3s Downloading  [=============>                           ]  22.3MB/101MB#9 5.3s Downloading  [========================================]  100%
+#9 5.4s Downloading  [==============>                          ]  30.2MB/152MB#7 5.4s Downloading  [========================================]  100%
+#8 5.5s Downloading  [===============>                         ]  48.5MB/187MB#9 5.5s Downloading  [========================================]  100%
+#7 5.6s Downloading  [================>                        ]  1.3MB/133MB#7 5.6s Downloading  [========================================]  100%
+#8 5.7s Downloading  [=================>                       ]  8.2MB/155MB#9 5.7s Downloading  [========================================]  100%
+#8 5.8s Downloading  [==================>                      ]  31.1MB/101MB#7 5.8s Downloading  [========================================]  100%
+#5 5.9s Downloading  [===================>                     ]  36.0MB/144MB#6 5.9s Downloading  [========================================]  100%
+⠋
+⠦ 
+⠹   
+⠋  
+⠙   
+⠋
+⠼
+⠧  
+⠹   
+⠹ 
+⠴ 
+⠸
+⠧   
+⠼   
+⠼   
+⠼ 
+⠸
+⠧   
+⠋ 
+⠙   
+⠧   
+⠦ 
+⠼ 
+⠹ 
+⠧
+⠸ 
+⠧   
+⠹  
+⠦ 
+⠧   
+⠸   
+⠦ 
+⠸   
+⠸ 
+⠴
+⠧
+⠼   
+⠧  
+⠙
+⠋
+⠋   
+⠹ 
+⠧   
+⠧  
+⠴   
+⠼ 
+⠹  
+⠋ 
+⠴  
+⠼ 
+⠴
+⠼   
+⠦   
+⠸  
+⠸
+⠋ 
+⠧
+⠸   
+⠦ 
+⠼   
+⠴
+⠦  
+⠼
+⠴   
+⠙ 
+⠙   
+⠴   
+⠸  
+⠼  
+⠙ 
+⠦  
+⠸ 
+⠴   
+⠦
+⠸ 
+⠋  
+⠴   
+⠸  
+⠹   
+⠧   
+#11 [build 4/6] RUN go build -o /out/api ./cmd/api
+#11 3.112 # example.com/api/internal/store
+#11 3.112 internal/store/pg.go:118:9: undefined: pgx.ErrNoRows
+#11 ERROR: process "/bin/sh -c go build -o /out/api ./cmd/api" did not complete successfully: exit code: 1
+#14 0.0s extracting sha256:50bcd4324d923a 47% done
+#14 0.1s sha256:1b62c4f10eafde 88% done
+#14 0.3s sha256:1cb2e63344c029 19% done
+#13 0.4s extracting sha256:322e2d44919622 51% done
+#14 0.6s extracting sha256:2c609c41129f31 22% done
+#12 0.7s sha256:4d066f61b50584 53% done
+#13 0.9s sha256:5e7843c154d818 86% done
+#14 1.0s sha256:1f183f64800d14 73% done
+#12 1.1s sha256:145246d5567d5c 7% done
+#14 1.3s sha256:15e44c944db1f9 96% done
+#13 1.4s sha256:4135257562e540 73% done
+#14 1.6s extracting sha256:5e908e7dfdcba 7% done
+#13 1.7s extracting sha256:174f9d85be7f9b 9% done
+#13 1.9s extracting sha256:493a3d9377e4ef 3% done
+#14 2.0s extracting sha256:3029f4d5976582 45% done
+#12 2.1s sha256:ba5d9b2f93b0c 28% done
+#13 2.3s sha256:ab255ced872d 57% done
+#13 2.4s extracting sha256:5262a753c8a0f2 12% done
+#14 2.6s extracting sha256:237442f238a008 23% done
+#12 2.7s sha256:405b21640654fa 76% done
+#12 2.9s sha256:550ef3123dd81b 90% done
+#13 3.0s extracting sha256:381d15dc0c753 93% done
+#12 3.1s extracting sha256:20d1fcb115d043 75% done
+#14 3.3s extracting sha256:3f58717a3bca9 82% done
+#14 3.4s sha256:5abbeffd78920 18% done
+#13 3.6s extracting sha256:4bf0a655d0f611 59% done
+#12 3.7s sha256:1cfd686122ac99 7% done
+#12 3.9s sha256:1a794b75a0326b 70% done
+#12 4.0s extracting sha256:59caade1eb1b5f 7% done
+#12 4.1s sha256:46684dc5b018d1 7% done
+#13 4.3s extracting sha256:1f66a10c7be93 30% done
+#12 4.4s sha256:44d3e7622bd93f 13% done
+#14 4.6s extracting sha256:bd2f495204148 49% done
+#12 4.7s sha256:21da42154a4c4e 61% done
+#12 4.9s sha256:268909da425d0 93% done
+#12 5.0s extracting sha256:184cddd5cec97a 64% done
+#12 5.1s extracting sha256:5ac379a5b5295f 78% done
+#14 5.3s sha256:5c27b24159df38 99% done
+#13 5.4s extracting sha256:1e281bd27ddadd 37% done
+#13 5.6s sha256:4d691991751906 61% done
+#12 5.7s sha256:27322731a40130 29% done
+#14 5.9s extracting sha256:2f94ef22c64d73 16% done
+#14 6.0s extracting sha256:36f44b810496a0 83% done
+#13 6.1s sha256:366fce7244e40f 61% done
+#14 6.3s extracting sha256:15eea3e1aed954 26% done
+#13 6.4s sha256:57d950f3516d29 60% done
+#14 6.6s sha256:a86cf64a7d30f 69% done
+#12 6.7s sha256:34ba4fb4ae4ca5 69% done
+#13 6.9s sha256:598ef621f4a713 36% done
+#12 7.0s extracting sha256:488e7a1200f245 66% done
+#12 7.1s extracting sha256:a9fca41e4b027 58% done
+#12 7.3s extracting sha256:4703d752b2ef0d 12% done
+#14 7.4s sha256:5419c2b5a77c4b 45% done
+#12 7.6s extracting sha256:ad676b13df1ad 33% done
+#13 7.7s sha256:52d4c77127aee5 14% done
+#13 7.9s extracting sha256:18f153d55712da 31% done
+#12 8.0s sha256:49cde3e1e786e5 67% done
+#13 8.1s extracting sha256:40b8f312fd4162 27% done
+#14 8.3s extracting sha256:59771bf51937d5 95% done
+#12 8.4s sha256:389323f25c8c07 44% done
+#14 8.6s sha256:5cb17494f38245 83% done
+#14 8.7s sha256:13a92ad5764539 87% done
+#14 8.9s sha256:ef4a882cf9b63 71% done
+#14 9.0s extracting sha256:2bc996e320cd68 65% done
+#13 9.1s extracting sha256:43f8ec957901c3 67% done
+#14 9.3s sha256:57d1526c10ad8 80% done
+#14 9.4s sha256:161fb40389a79f 94% done
+#14 9.6s sha256:3ae3c2e2436c98 72% done
+#14 9.7s sha256:3032fbc3ccdbae 47% done
+#12 9.9s extracting sha256:521dfe23ef8ffe 76% done
+#12 10.0s sha256:d682e62c74b03 12% done
+#14 10.1s extracting sha256:279dc635dff49a 63% done
+#12 10.3s sha256:460a40132f7667 63% done
+#13 10.4s extracting sha256:3c35dce2eda71d 15% done
+#14 10.6s sha256:4fb59913c82505 93% done
+#13 10.7s extracting sha256:4dd6e5a34d839b 18% done
+#13 10.9s sha256:38f259857aa6b3 52% done
+#12 11.0s sha256:399b91322cf2cb 12% done
+#14 11.1s sha256:5df78da36b3d13 29% done
+#12 11.3s extracting sha256:154e1862fd13f7 74% done
+#13 11.4s extracting sha256:1d6ab84e210ac 90% done
+#13 11.6s sha256:40eb2655b23d69 98% done
+#12 11.7s extracting sha256:f266f0173ce13 93% done
+#14 11.9s sha256:285545b5d9817e 11% done
+#12 12.0s sha256:3758e9f4d066b0 14% done
+#13 12.1s sha256:35f56814bf970b 32% done
+#14 12.3s extracting sha256:267afcd5ba260f 15% done
+#12 12.4s sha256:1ee392f46f519d 88% done
+#12 12.6s sha256:19f97db16426db 9% done
+#12 12.7s sha256:2dd965d1e884d3 68% done
+#13 12.9s extracting sha256:16bf96855df049 33% done
+#13 13.0s sha256:ad23f43ade0cf 24% done
+#14 13.1s sha256:10f05ba305aa89 37% done
+#12 13.3s sha256:477385b3882bbf 49% done
+#14 13.4s sha256:4ce77c8507f5bb 9% done
+#12 13.6s extracting sha256:354a4e43186f3e 35% done
+#13 13.7s extracting sha256:34d24182bb7653 26% done
+#14 13.9s sha256:2c2a24c3d3f8c6 82% done
+#14 14.0s extracting sha256:2e588672ee92d0 23% done
+#13 14.1s extracting sha256:1f167365955223 28% done
+ERROR: failed to solve: process "/bin/sh -c go build -o /out/api ./cmd/api" did not complete successfully: exit code: 1

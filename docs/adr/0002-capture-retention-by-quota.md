@@ -1,0 +1,3 @@
+# Keep Captures across sessions, evict by quota
+
+Elisions in a Digest stay in the agent's context after `--resume` and compaction, so deleting Captures at session end (or after a TTL, as Headroom did) would turn every Elision into a dead link. Captures live in `.entropy-filter/captures/` and are evicted oldest-first once the project holds more than 200 Captures or 100 MB; a single Capture is capped at 16 MB so one huge output cannot flush the rest. The captures directory writes its own `.gitignore` (`*`) so the user's `.gitignore` is never edited, while `.entropy-filter/config.json` beside it stays committable. Asking for an evicted Capture returns an explicit "evicted, re-run the command" error.

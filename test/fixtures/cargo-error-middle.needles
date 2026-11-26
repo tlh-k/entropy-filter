@@ -1,0 +1,4 @@
+error[E0308]: mismatched types
+--> src/ledger/post.rs:57:24
+expected `i64`, found `String`
+could not compile `ledger`

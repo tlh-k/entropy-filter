@@ -1,0 +1,4 @@
+HATA  [MuhasebeEntegrasyonu] Yevmiye fişi oluşturulamadı: hesap 391.01 bulunamadı
+at com.zer.muhasebe.YevmiyeServisi.olustur(YevmiyeServisi.java:212)
+GİB servisine bağlantıda zaman aşımı (30 sn)
+Gün sonu işlemleri tamamlandı

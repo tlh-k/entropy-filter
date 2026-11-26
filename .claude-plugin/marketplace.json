@@ -1,0 +1,11 @@
+{
+  "name": "entropy-filter",
+  "owner": { "name": "tlh-k" },
+  "plugins": [
+    {
+      "name": "entropy-filter",
+      "source": "./",
+      "description": "Entropy-based output filter for coding agents."
+    }
+  ]
+}

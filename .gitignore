@@ -1,0 +1,6 @@
+node_modules/
+.entropy-filter/captures/
+.entropy-filter/stats.jsonl
+.state-ledger/
+coverage/
+.DS_Store

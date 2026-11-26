@@ -1,0 +1,4 @@
+E       AssertionError: assert Decimal('10.01') == Decimal('10.00')
+tests/test_payments.py:88: AssertionError
+FAILED tests/test_payments.py::test_refund_rounds_down
+1 failed, 1839 passed

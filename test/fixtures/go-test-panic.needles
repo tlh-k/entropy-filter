@@ -1,0 +1,4 @@
+--- FAIL: TestSettle
+panic: runtime error: invalid memory address or nil pointer dereference
+/work/billing/settle.go:73
+FAIL	example.com/api/billing	0.412s

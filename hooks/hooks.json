@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Read",
+        "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/dist/entropy-filter.mjs\" hook post-tool-use", "timeout": 5 }]
+      }
+    ]
+  }
+}

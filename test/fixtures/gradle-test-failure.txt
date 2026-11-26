@@ -1,0 +1,238 @@
+> Configure project :app
+> Task :app:compileJava NO-SOURCE
+> Task :api:compileTestJava UP-TO-DATE
+> Task :billing:classes NO-SOURCE
+> Task :app:classes
+> Task :billing:jar UP-TO-DATE
+> Task :app:compileTestJava FROM-CACHE
+> Task :api:classes NO-SOURCE
+> Task :billing:jar FROM-CACHE
+> Task :app:processResources FROM-CACHE
+> Task :billing:classes
+> Task :api:processResources NO-SOURCE
+> Task :api:classes UP-TO-DATE
+> Task :api:jar FROM-CACHE
+> Task :core:classes NO-SOURCE
+> Task :billing:compileTestJava FROM-CACHE
+> Task :billing:compileJava UP-TO-DATE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :api:processResources FROM-CACHE
+> Task :billing:processResources NO-SOURCE
+> Task :app:jar UP-TO-DATE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:classes UP-TO-DATE
+> Task :core:processResources FROM-CACHE
+> Task :app:classes
+> Task :api:processResources UP-TO-DATE
+> Task :api:classes FROM-CACHE
+> Task :core:classes
+> Task :api:compileTestJava FROM-CACHE
+> Task :app:classes
+> Task :core:compileTestJava
+> Task :core:compileTestJava
+> Task :core:jar UP-TO-DATE
+> Task :billing:compileJava FROM-CACHE
+> Task :api:jar UP-TO-DATE
+> Task :billing:jar FROM-CACHE
+> Task :billing:jar FROM-CACHE
+> Task :billing:jar UP-TO-DATE
+> Task :billing:classes NO-SOURCE
+> Task :api:processResources UP-TO-DATE
+> Task :api:jar NO-SOURCE
+> Task :app:compileJava FROM-CACHE
+> Task :core:processResources
+> Task :app:jar NO-SOURCE
+> Task :api:compileJava NO-SOURCE
+> Task :api:classes
+> Task :app:classes FROM-CACHE
+> Task :app:classes NO-SOURCE
+> Task :api:classes UP-TO-DATE
+> Task :billing:compileJava NO-SOURCE
+> Task :core:compileJava FROM-CACHE
+> Task :api:compileJava NO-SOURCE
+> Task :api:compileJava
+> Task :api:compileTestJava NO-SOURCE
+> Task :billing:compileTestJava
+> Task :api:classes FROM-CACHE
+> Task :app:classes
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:processResources
+> Task :core:processResources NO-SOURCE
+> Task :core:processResources UP-TO-DATE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :core:compileTestJava NO-SOURCE
+> Task :app:compileTestJava FROM-CACHE
+> Task :core:classes FROM-CACHE
+> Task :app:processResources
+> Task :billing:jar
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :api:jar FROM-CACHE
+> Task :api:jar FROM-CACHE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :core:compileTestJava UP-TO-DATE
+> Task :api:compileTestJava UP-TO-DATE
+> Task :api:jar FROM-CACHE
+> Task :billing:classes UP-TO-DATE
+> Task :api:classes FROM-CACHE
+> Task :api:classes FROM-CACHE
+> Task :core:jar FROM-CACHE
+> Task :billing:jar
+> Task :billing:processResources
+> Task :api:compileJava UP-TO-DATE
+> Task :billing:jar NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :billing:compileTestJava FROM-CACHE
+> Task :app:compileTestJava NO-SOURCE
+> Task :billing:classes NO-SOURCE
+> Task :api:processResources FROM-CACHE
+> Task :app:processResources
+> Task :app:classes
+> Task :api:compileJava UP-TO-DATE
+> Task :core:compileTestJava NO-SOURCE
+> Task :app:classes
+> Task :app:compileTestJava UP-TO-DATE
+> Task :api:classes
+> Task :billing:processResources UP-TO-DATE
+> Task :api:jar UP-TO-DATE
+> Task :core:processResources FROM-CACHE
+> Task :app:compileJava NO-SOURCE
+> Task :api:classes
+> Task :app:compileTestJava FROM-CACHE
+> Task :app:jar NO-SOURCE
+> Task :billing:compileTestJava UP-TO-DATE
+> Task :api:processResources
+> Task :core:jar FROM-CACHE
+> Task :api:classes UP-TO-DATE
+> Task :app:jar
+> Task :app:compileTestJava FROM-CACHE
+> Task :billing:compileTestJava FROM-CACHE
+> Task :api:compileJava NO-SOURCE
+> Task :billing:classes FROM-CACHE
+> Task :app:classes
+> Task :core:jar UP-TO-DATE
+> Task :app:compileJava NO-SOURCE
+> Task :app:processResources FROM-CACHE
+> Task :billing:compileJava FROM-CACHE
+> Task :api:compileTestJava NO-SOURCE
+> Task :api:classes FROM-CACHE
+> Task :billing:classes FROM-CACHE
+> Task :core:classes FROM-CACHE
+> Task :core:compileTestJava FROM-CACHE
+> Task :app:processResources
+> Task :api:compileTestJava UP-TO-DATE
+> Task :core:classes UP-TO-DATE
+> Task :app:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :app:classes UP-TO-DATE
+> Task :app:classes FROM-CACHE
+> Task :billing:processResources UP-TO-DATE
+> Task :api:processResources
+> Task :api:processResources FROM-CACHE
+> Task :api:compileJava
+> Task :billing:compileTestJava
+> Task :billing:compileTestJava
+> Task :app:jar UP-TO-DATE
+> Task :api:jar
+> Task :billing:jar
+> Task :app:processResources
+> Task :app:compileTestJava
+> Task :app:processResources UP-TO-DATE
+> Task :app:compileTestJava UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :billing:compileJava NO-SOURCE
+> Task :billing:processResources FROM-CACHE
+> Task :app:compileJava
+> Task :core:compileTestJava UP-TO-DATE
+> Task :api:processResources FROM-CACHE
+> Task :core:jar NO-SOURCE
+> Task :core:processResources FROM-CACHE
+> Task :api:compileTestJava UP-TO-DATE
+> Task :billing:processResources NO-SOURCE
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:compileJava FROM-CACHE
+> Task :api:compileJava UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :billing:jar UP-TO-DATE
+> Task :api:compileTestJava FROM-CACHE
+> Task :api:compileTestJava NO-SOURCE
+> Task :core:compileTestJava FROM-CACHE
+> Task :api:compileJava UP-TO-DATE
+> Task :core:jar
+> Task :app:compileJava
+> Task :api:compileJava UP-TO-DATE
+> Task :core:compileJava FROM-CACHE
+> Task :core:compileTestJava
+> Task :core:compileJava FROM-CACHE
+> Task :billing:processResources FROM-CACHE
+> Task :app:processResources
+> Task :api:compileTestJava UP-TO-DATE
+> Task :app:compileTestJava UP-TO-DATE
+> Task :app:jar NO-SOURCE
+> Task :app:jar NO-SOURCE
+> Task :api:compileJava NO-SOURCE
+> Task :core:compileTestJava FROM-CACHE
+> Task :billing:compileJava NO-SOURCE
+> Task :billing:compileJava
+> Task :core:compileTestJava
+> Task :core:compileTestJava NO-SOURCE
+> Task :api:processResources UP-TO-DATE
+> Task :app:classes
+> Task :billing:jar
+> Task :core:compileJava NO-SOURCE
+> Task :api:compileJava UP-TO-DATE
+> Task :core:jar FROM-CACHE
+> Task :api:compileJava FROM-CACHE
+> Task :app:compileJava
+> Task :app:compileJava UP-TO-DATE
+> Task :api:compileJava
+> Task :billing:compileJava NO-SOURCE
+> Task :app:jar FROM-CACHE
+> Task :billing:compileJava FROM-CACHE
+> Task :api:processResources UP-TO-DATE
+> Task :billing:compileJava
+> Task :api:processResources UP-TO-DATE
+> Task :core:processResources NO-SOURCE
+> Task :core:jar NO-SOURCE
+> Task :api:processResources FROM-CACHE
+> Task :app:jar NO-SOURCE
+> Task :core:compileJava UP-TO-DATE
+> Task :billing:compileJava FROM-CACHE
+> Task :api:compileTestJava
+> Task :api:jar UP-TO-DATE
+> Task :api:classes NO-SOURCE
+> Task :api:compileTestJava
+> Task :billing:processResources
+> Task :billing:compileJava
+> Task :api:jar UP-TO-DATE
+> Task :app:compileTestJava FROM-CACHE
+> Task :core:processResources
+> Task :billing:compileTestJava NO-SOURCE
+> Task :billing:classes NO-SOURCE
+> Task :app:classes NO-SOURCE
+> Task :app:compileTestJava FROM-CACHE
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:jar NO-SOURCE
+> Task :core:jar
+> Task :api:jar NO-SOURCE
+> Task :app:compileTestJava
+> Task :core:compileTestJava FROM-CACHE
+> Task :billing:jar NO-SOURCE
+> Task :billing:test FAILED
+
+InvoiceServiceTest > kdvIsAppliedOnce() FAILED
+    org.opentest4j.AssertionFailedError: expected: <120.00> but was: <144.00>
+        at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:151)
+        at app//com.zer.billing.InvoiceServiceTest.kdvIsAppliedOnce(InvoiceServiceTest.java:61)
+
+312 tests completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':billing:test'.
+> There were failing tests. See the report at: file:///work/billing/build/reports/tests/test/index.html
+
+BUILD FAILED in 1m 12s
+41 actionable tasks: 12 executed, 29 up-to-date

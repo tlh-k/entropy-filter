@@ -1,0 +1,4 @@
+AssertionFailedError: expected: <120.00> but was: <144.00>
+InvoiceServiceTest.kdvIsAppliedOnce(InvoiceServiceTest.java:61)
+Execution failed for task ':billing:test'.
+BUILD FAILED in 1m 12s

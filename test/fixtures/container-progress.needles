@@ -1,0 +1,2 @@
+internal/store/pg.go:118:9: undefined: pgx.ErrNoRows
+ERROR: failed to solve

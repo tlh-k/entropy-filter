@@ -1,0 +1,5 @@
+FAIL src/billing/invoice.test.ts
+Expected: 120
+Received: 100
+at Object.<anonymous> (src/billing/invoice.test.ts:42:23)
+Tests:       1 failed, 2411 passed, 2412 total

@@ -1,0 +1,169 @@
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@3.0.6: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@6.6.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.3.6: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.0.4: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@9.2.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.6.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.2.3: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@5.4.8: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@2.7.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@7.0.5: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@1.1.7: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@4.3.4: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@4.2.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@9.9.4: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.0.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@9.9.8: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@2.9.9: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@5.3.6: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.0.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.8.1: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.5.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.9.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@6.3.4: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@2.6.7: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.6.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@8.5.6: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@3.5.7: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.4.5: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@7.7.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.3.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@5.9.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@4.1.4: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@8.6.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.1.7: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@3.2.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@6.6.8: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@3.0.4: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.8.6: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.8.8: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@9.0.2: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@2.3.0: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@8.2.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@5.3.4: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@9.7.3: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@3.5.7: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@5.1.2: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@3.4.8: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@2.9.4: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@5.6.2: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.7.5: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@8.9.2: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.8.1: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@8.1.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@4.5.9: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@5.3.7: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@9.9.5: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@6.9.0: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@7.8.3: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.3.0: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@2.5.9: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@8.8.0: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@6.3.9: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.5.3: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.2.6: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.7.0: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@8.6.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.5.5: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@1.5.6: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@2.2.5: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@4.2.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@8.6.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@9.3.7: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@7.4.8: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@3.4.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@8.6.6: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@4.2.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@5.9.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@6.5.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@9.2.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@3.5.7: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@7.5.4: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.6.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@5.3.6: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@7.7.8: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@9.2.9: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@7.3.5: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@5.7.8: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@6.1.3: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@2.0.4: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@1.5.9: Please upgrade
+[31mnpm[39m [31mERR![39m code ERESOLVE
+[31mnpm[39m [31mERR![39m ERESOLVE unable to resolve dependency tree
+[31mnpm[39m [31mERR![39m Found: react@18.3.1
+[31mnpm[39m [31mERR![39m Could not resolve dependency: peer react@"^17.0.0" from legacy-datepicker@2.4.0
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@2.1.0: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@3.8.6: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@1.6.0: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@7.3.9: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@3.0.8: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.2.7: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@8.1.4: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@8.4.2: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@1.5.2: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@3.8.4: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@7.6.3: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.4.0: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@3.2.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@7.2.6: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@1.5.3: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@6.7.8: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@6.7.1: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@2.8.4: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@7.4.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@2.0.9: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@2.2.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@7.8.3: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@4.7.8: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@2.6.9: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@8.8.9: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@7.7.9: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@5.4.7: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@2.3.5: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@7.0.5: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.5.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@2.2.4: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.9.0: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@4.4.4: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@9.6.9: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@6.7.6: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@8.1.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@9.8.5: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@1.5.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@5.2.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@8.9.6: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@2.9.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@1.5.2: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@7.2.3: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m har-validator@6.3.0: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@8.9.6: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@7.8.5: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@8.7.6: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@6.8.7: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m request@1.6.8: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@8.0.2: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@9.6.2: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@9.0.7: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.7.7: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@1.5.4: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@2.0.3: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@6.9.2: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@1.2.5: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@2.9.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@5.8.1: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m glob@8.4.3: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@6.8.8: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.6.1: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@1.2.7: This module is not supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@3.6.9: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@7.8.4: Glob versions prior to v9 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@9.5.1: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@2.7.7: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m rimraf@4.9.3: Please upgrade
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m inflight@9.2.8: Rimraf versions prior to v4 are no longer supported
+[33mnpm[39m [30;43mWARN[0m [35mdeprecated[0m uuid@1.6.6: Glob versions prior to v9 are no longer supported
+
+added 1291 packages, and audited 1292 packages in 41s
+
+214 packages are looking for funding
+  run `npm fund` for details
