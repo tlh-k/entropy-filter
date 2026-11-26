@@ -1,6 +1,6 @@
 {
   "name": "entropy-filter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Entropy-based output filter for coding agents: keeps the lines that carry information, stores the rest locally (MCP + Claude Code plugin).",
   "type": "module",
   "license": "MIT",
@@ -12,6 +12,8 @@
     "skills",
     "hooks",
     ".claude-plugin",
+    ".antigravity-plugin",
+    "mcp_config.json",
     "rules"
   ],
   "engines": {

@@ -24,12 +24,12 @@ Tek TypeScript paketi (Node ≥20, esbuild ile tek dosya `dist/entropy-filter.mj
 | Katman | Bileşen | Kapsam |
 | --- | --- | --- |
 | Çekirdek | Filtre motoru + Capture deposu | Hepsi |
-| Otomasyon | `entropy-filter hook post-tool-use` (PostToolUse kancası) | Claude Code |
-| Araçlar | `entropy-filter serve` (stdio MCP): `entropy_exec`, `entropy_read_slice` | Claude Code, Cursor, Cline, Codex |
-| Yönerge | `skills/entropy-filter/SKILL.md`, `.cursor/rules`, `.clinerules`, `AGENTS.md` bloğu | İlgili istemci |
+| Otomasyon | `entropy-filter hook post-tool-use [--client copilot]` | Claude Code, Copilot (CLI + VS Code) |
+| Araçlar | `entropy-filter serve` (stdio MCP): `entropy_exec`, `entropy_read_slice` | Hepsi |
+| Yönerge | `skills/entropy-filter/SKILL.md`, `.cursor/rules`, `.clinerules`, `AGENTS.md`, `.github/copilot-instructions.md`, Antigravity `rules/AGENTS.md` | İlgili istemci |
 
 CLI: `serve`, `hook post-tool-use`, `exec -- <komut>`, `filter [dosya]`, `slice <id> <başlangıç> <bitiş>`,
-`init --client <claude|cursor|cline|codex>`, `stats`.
+`init --client <claude|cursor|cline|codex|copilot|antigravity>`, `stats`.
 
 Sistem HTTP portu dinlemez; yalnızca stdio ve yerel dosya kullanır. MCP araç yüzeyi oturum boyunca sabittir.
 
@@ -62,6 +62,16 @@ Değiştirilmeyecek durumlar (olduğu gibi geçer): `interrupted`, `isImage`, `b
 - Read için Capture yazılmaz: dosya diskte durur. Elision'lar dosyanın gerçek satır numaralarını verir;
   model atlanan aralığı Read `offset`/`limit` ile okur.
 - Grep, Glob ve diğer MCP araçlarının çıktısı v1 kapsamı dışındadır.
+
+### 3.2 Diğer istemciler (ADR-0004)
+
+| İstemci | Otomatik süzme | Kurulum (`init --client …`) |
+| --- | --- | --- |
+| Copilot CLI / VS Code agent | `postToolUse` → `modifiedResult` (bash/powershell; sıfırdan farklı çıkışlar dahil) | `~/.entropy-filter/bin/` kopyası, `~/.copilot/mcp-config.json`, `~/.copilot/hooks/entropy-filter.json`, `.vscode/mcp.json`, `.github/copilot-instructions.md` |
+| Antigravity | Yok: PostToolUse çıktıyı görmez ve değiştiremez | Eklenti `~/.gemini/config/plugins/entropy-filter/` (MCP + rules + skill); depo kökü de aynı eklentidir |
+| Cursor, Cline, Codex | Yok | MCP + kural dosyası |
+
+Kancası olmayan istemcilerde test/derleme/lint komutları kurallar aracılığıyla `entropy_exec`'e yönlendirilir.
 
 ## 4. Filtre boru hattı
 
@@ -196,5 +206,5 @@ filtreleme CLI'dadır: `entropy-filter filter < build.log`.
 ## 10. Kapsam dışı (v1)
 
 Sinir ağı tabanlı sıkıştırıcılar; AST/kod iskeletleme; HTTP proxy; oturumlar arası durum defteri
-(state-ledger'ın işi); komut sarmalama ile çıkış kodu maskeleme (ADR-0003); Grep/Glob/MCP çıktıları;
-Gemini CLI, Copilot, Antigravity istemcileri.
+(state-ledger'ın işi); komut sarmalama ile çıkış kodu maskeleme (ADR-0003), Antigravity `run_command`
+sarmalama dahil (ADR-0004); Grep/Glob/MCP çıktıları; Gemini CLI istemcisi.

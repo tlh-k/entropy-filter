@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "entropy-filter": {
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/dist/entropy-filter.mjs",
+        "serve"
+      ]
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { loadConfig } from "./config.js";
 import { entropyExec } from "./exec.js";
 import { captureAndDigest, isShort } from "./filter.js";
 import { computeBudget } from "./digest.js";
-import { runHook } from "./hook.js";
+import { runCopilotHook, runHook } from "./hook.js";
 import { CLIENTS, type Client, init } from "./init.js";
 import { serve } from "./server.js";
 import { resolveRoot, Store } from "./store.js";
@@ -13,7 +13,8 @@ import { VERSION } from "./version.js";
 const USAGE = `entropy-filter ${VERSION}
 Usage:
   entropy-filter serve                      Run the stdio MCP server
-  entropy-filter hook post-tool-use         Claude Code hook handler (JSON on stdin)
+  entropy-filter hook post-tool-use [--client claude|copilot]
+                                            PostToolUse hook handler (JSON on stdin)
   entropy-filter exec -- <command…>         Run a command, print exit status + Digest
   entropy-filter filter [file]              Digest a file or stdin (stores a Capture)
   entropy-filter slice <id> <start> <end>   Print raw lines of a Capture
@@ -57,7 +58,7 @@ async function main(argv: string[]): Promise<number> {
       try {
         const input = JSON.parse(await readStdin());
         if (input && typeof input === "object" && !Array.isArray(input)) {
-          const out = runHook(input);
+          const out = arg(rest, "--client") === "copilot" ? runCopilotHook(input) : runHook(input);
           if (out) process.stdout.write(JSON.stringify(out) + "\n");
         }
       } catch {
@@ -101,10 +102,16 @@ async function main(argv: string[]): Promise<number> {
     case "stats":
       console.log(stats(resolveRoot(process.cwd())));
       return 0;
-    case "rules": {
-      // Build step: rules/AGENTS.md is generated from the same block init writes.
-      const { RULES_BLOCK } = await import("./instructions.js");
-      process.stdout.write(RULES_BLOCK);
+    case "write-antigravity-plugin": {
+      // Build step: keep the repo-root Antigravity plugin files in sync with the code.
+      const { antigravityPluginFiles } = await import("./antigravity.js");
+      const { mkdirSync, writeFileSync } = await import("node:fs");
+      const { dirname, join } = await import("node:path");
+      for (const [rel, content] of Object.entries(antigravityPluginFiles())) {
+        const dest = join(rest[0] ?? ".", rel);
+        mkdirSync(dirname(dest), { recursive: true });
+        writeFileSync(dest, content);
+      }
       return 0;
     }
     case "--version":

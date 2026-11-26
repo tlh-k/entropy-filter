@@ -51,6 +51,22 @@ Details: [docs/SPEC.md](docs/SPEC.md) · terms: [docs/GLOSSARY.md](docs/GLOSSARY
 - **MCP tools**: `entropy_exec` runs a command and returns `[exit N]` plus a Digest; `entropy_read_slice` returns raw lines of a stored output.
 - A **skill** tells the agent to run tests, builds and linters through `entropy_exec`. This matters because Claude Code does not let hooks change the output of a command that **exits non-zero** ([ADR-0003](docs/adr/0003-replace-output-after-the-fact.md)).
 
+### GitHub Copilot (CLI + VS Code agent: hook + MCP + instructions)
+
+```bash
+npx -y github:tlh-k/entropy-filter init --client copilot
+```
+
+This copies the bundle to `~/.entropy-filter/bin/`. It adds the MCP server to `~/.copilot/mcp-config.json` and `.vscode/mcp.json`, installs a `postToolUse` hook in `~/.copilot/hooks/entropy-filter.json`, and adds the rules to `.github/copilot-instructions.md`. Copilot's hook can replace shell results, **including commands that exit non-zero**, so failing test runs are filtered automatically. This is checked against Copilot's documented hook schema, not yet in a live Copilot session. VS Code's agent hooks are in preview.
+
+### Antigravity (plugin: MCP + rules + skill)
+
+```bash
+npx -y github:tlh-k/entropy-filter init --client antigravity
+```
+
+This installs the plugin into `~/.gemini/config/plugins/entropy-filter/`; restart Antigravity afterwards. Antigravity's PostToolUse hook never sees a tool's output, so filtering there happens only when the agent runs commands through `entropy_exec`, which the rules tell it to do ([ADR-0004](docs/adr/0004-copilot-and-antigravity.md)).
+
 ### Cursor, Cline, Codex (MCP + rules)
 
 ```bash

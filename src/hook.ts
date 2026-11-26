@@ -25,6 +25,42 @@ export function runHook(input: Json, env: NodeJS.ProcessEnv = process.env): Json
   return undefined;
 }
 
+/**
+ * GitHub Copilot (CLI, and VS Code which shares its hook harness) `postToolUse`:
+ * stdin `{ cwd, toolName, toolArgs, toolResult: { resultType, textResultForLlm } }`,
+ * reply `{ modifiedResult: { resultType: "success", textResultForLlm } }` replaces the result.
+ * Copilot merges stdout and stderr into one text and fires this event only for "success"
+ * results, which include shell commands that exited non-zero.
+ */
+export function runCopilotHook(input: Json, env: NodeJS.ProcessEnv = process.env): Json | undefined {
+  if (env.ENTROPY_FILTER === "off") return undefined;
+  const tool = String(input.toolName ?? input.tool_name ?? "").toLowerCase();
+  if (tool !== "bash" && tool !== "powershell") return undefined;
+  const result = isObj(input.toolResult) ? input.toolResult : isObj(input.tool_result) ? input.tool_result : undefined;
+  const text = result?.textResultForLlm ?? result?.text_result_for_llm;
+  if (typeof text !== "string") return undefined;
+  let args: unknown = input.toolArgs ?? input.tool_input;
+  if (typeof args === "string") {
+    try {
+      args = JSON.parse(args);
+    } catch {
+      args = { command: args };
+    }
+  }
+  const command = isObj(args) && typeof args.command === "string" ? args.command : "";
+  const cwd = typeof input.cwd === "string" ? input.cwd : process.cwd();
+  const root = resolveRoot(cwd, env);
+  const cfg = loadConfig(root);
+  if (isPassthrough(command, cfg.passthroughCommands)) return undefined;
+  const store = new Store(root);
+  const res = filterStreams({ stdout: text, stderr: "" }, cfg, store, command);
+  if (!res) {
+    store.stat({ kind: "passthrough", tool: "copilot:" + tool, rawChars: text.length });
+    return undefined;
+  }
+  return { modifiedResult: { resultType: "success", textResultForLlm: res.stdout.text } };
+}
+
 function bash(ti: Json, r: Json, cwd: string, env: NodeJS.ProcessEnv): Json | undefined {
   if (r.interrupted || r.isImage || r.backgroundTaskId) return undefined;
   if (typeof r.stdout !== "string" || typeof r.stderr !== "string") return undefined;

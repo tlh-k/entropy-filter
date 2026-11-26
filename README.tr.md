@@ -51,6 +51,22 @@ Ayrıntılar: [docs/SPEC.md](docs/SPEC.md) · terimler: [docs/GLOSSARY.md](docs/
 - **MCP araçları**: `entropy_exec` bir komutu çalıştırıp `[exit N]` ve bir Digest döndürür; `entropy_read_slice` saklanan bir çıktının ham satırlarını döndürür.
 - **Skill**, ajana test, derleme ve lint komutlarını `entropy_exec` ile çalıştırmasını söyler. Bu önemli, çünkü Claude Code **sıfırdan farklı çıkış kodlu** bir komutun çıktısını kancanın değiştirmesine izin vermez ([ADR-0003](docs/adr/0003-replace-output-after-the-fact.md)).
 
+### GitHub Copilot (CLI + VS Code agent: kanca + MCP + yönerge)
+
+```bash
+npx -y github:tlh-k/entropy-filter init --client copilot
+```
+
+Bu komut paketi `~/.entropy-filter/bin/` klasörüne kopyalar. MCP sunucusunu `~/.copilot/mcp-config.json` ve `.vscode/mcp.json` dosyalarına ekler, `~/.copilot/hooks/entropy-filter.json` içine bir `postToolUse` kancası kurar ve kuralları `.github/copilot-instructions.md` dosyasına yazar. Copilot'un kancası, **sıfırdan farklı kodla biten komutlar dahil** kabuk sonuçlarını değiştirebilir; yani başarısız test çıktıları da otomatik süzülür. Bu, Copilot'un belgelenmiş kanca şemasına göre doğrulandı; henüz canlı bir Copilot oturumunda denenmedi. VS Code agent kancaları önizleme aşamasında.
+
+### Antigravity (eklenti: MCP + kurallar + skill)
+
+```bash
+npx -y github:tlh-k/entropy-filter init --client antigravity
+```
+
+Bu komut eklentiyi `~/.gemini/config/plugins/entropy-filter/` klasörüne kurar; ardından Antigravity'yi yeniden başlat. Antigravity'nin PostToolUse kancası araç çıktısını hiç görmez. Bu yüzden orada süzme yalnızca ajan komutları `entropy_exec` ile çalıştırdığında olur; kurallar ajana bunu söyler ([ADR-0004](docs/adr/0004-copilot-and-antigravity.md)).
+
 ### Cursor, Cline, Codex (MCP + kurallar)
 
 ```bash

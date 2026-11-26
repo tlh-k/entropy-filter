@@ -113,6 +113,51 @@ describe("init", () => {
     expect(agents.match(/entropy-filter:start/g)).toHaveLength(1);
   });
 
+  it("copilot: installs the bundle, merges user and VS Code MCP configs, upserts instructions", () => {
+    const p = tmp("ef-copilot-");
+    const bundle = join(p, "fake.mjs");
+    require("node:fs").writeFileSync(bundle, "// bundle");
+    require("node:fs").mkdirSync(join(p, ".copilot"));
+    require("node:fs").writeFileSync(join(p, ".copilot", "mcp-config.json"), JSON.stringify({ mcpServers: { other: {} } }));
+    init({ client: "copilot", projectDir: p, homeDir: p, bundleSource: bundle });
+    expect(readFileSync(join(p, ".entropy-filter", "bin", "entropy-filter.mjs"), "utf8")).toBe("// bundle");
+    const user = JSON.parse(readFileSync(join(p, ".copilot", "mcp-config.json"), "utf8"));
+    expect(Object.keys(user.mcpServers).sort()).toEqual(["entropy-filter", "other"]);
+    expect(user.mcpServers["entropy-filter"].args).toEqual([join(p, ".entropy-filter", "bin", "entropy-filter.mjs"), "serve"]);
+    const vs = JSON.parse(readFileSync(join(p, ".vscode", "mcp.json"), "utf8"));
+    expect(vs.servers["entropy-filter"]).toMatchObject({ type: "stdio", command: "npx" });
+    expect(readFileSync(join(p, ".github", "copilot-instructions.md"), "utf8")).toContain("entropy_exec");
+    const hooks = JSON.parse(readFileSync(join(p, ".copilot", "hooks", "entropy-filter.json"), "utf8"));
+    expect(hooks.version).toBe(1);
+    expect(hooks.hooks.postToolUse[0].bash).toContain("hook post-tool-use --client copilot");
+  });
+
+  it("copilot: leaves a commented .vscode/mcp.json alone and prints the snippet", () => {
+    const p = tmp("ef-copilot-jsonc-");
+    const bundle = join(p, "fake.mjs");
+    require("node:fs").writeFileSync(bundle, "");
+    require("node:fs").mkdirSync(join(p, ".vscode"));
+    require("node:fs").writeFileSync(join(p, ".vscode", "mcp.json"), "{ // mine\n }");
+    const log = init({ client: "copilot", projectDir: p, homeDir: p, bundleSource: bundle });
+    expect(readFileSync(join(p, ".vscode", "mcp.json"), "utf8")).toBe("{ // mine\n }");
+    expect(log.join("\n")).toMatch(/has comments, so it was not edited/);
+  });
+
+  it("antigravity: installs the plugin files, bundle and skill", () => {
+    const p = tmp("ef-ag-");
+    const pkg = join(p, "pkg");
+    require("node:fs").mkdirSync(join(pkg, "dist"), { recursive: true });
+    require("node:fs").mkdirSync(join(pkg, "skills", "entropy-filter"), { recursive: true });
+    require("node:fs").writeFileSync(join(pkg, "dist", "entropy-filter.mjs"), "// bundle");
+    require("node:fs").writeFileSync(join(pkg, "skills", "entropy-filter", "SKILL.md"), "skill");
+    init({ client: "antigravity", projectDir: p, homeDir: p, bundleSource: join(pkg, "dist", "entropy-filter.mjs") });
+    const dest = join(p, ".gemini", "config", "plugins", "entropy-filter");
+    for (const f of [".antigravity-plugin/plugin.json", "mcp_config.json", "rules/AGENTS.md", "dist/entropy-filter.mjs", "skills/entropy-filter/SKILL.md"]) {
+      expect(existsSync(join(dest, f)), f).toBe(true);
+    }
+    expect(JSON.parse(readFileSync(join(dest, "mcp_config.json"), "utf8")).mcpServers["entropy-filter"].args[0]).toBe("${PLUGIN_ROOT}/dist/entropy-filter.mjs");
+  });
+
   it("upsertBlock replaces in place", () => {
     const a = upsertBlock("# Mine\n", "one");
     const b = upsertBlock(a + "\ntrailing\n", "two");

@@ -24,6 +24,18 @@ describe("hook (bundle)", () => {
     expect(out.hookSpecificOutput.updatedToolOutput.stdout).toContain("not ok 801 - refund rounds down");
   });
 
+  it("speaks Copilot's protocol with --client copilot", () => {
+    const r = spawnSync(process.execPath, [BUNDLE, "hook", "post-tool-use", "--client", "copilot"], {
+      input: JSON.stringify({ cwd: "/", toolName: "bash", toolArgs: '{"command":"npm test"}', toolResult: { resultType: "success", textResultForLlm: long + "\n<exited with exit code 1>" } }),
+      env: { ...process.env, ENTROPY_FILTER_ROOT: root() },
+      encoding: "utf8",
+    });
+    expect(r.status).toBe(0);
+    const out = JSON.parse(r.stdout);
+    expect(out.modifiedResult.resultType).toBe("success");
+    expect(out.modifiedResult.textResultForLlm).toContain("not ok 801 - refund rounds down");
+  });
+
   it.each([["garbage", "{not json"], ["empty", ""], ["array", "[1,2]"]])("fails open on %s input", (_, input) => {
     const r = hook(input, { ENTROPY_FILTER_ROOT: root() });
     expect(r.status).toBe(0);

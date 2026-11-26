@@ -3,7 +3,7 @@ import { mkdtempSync, readdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { runHook } from "../src/hook.js";
+import { runCopilotHook, runHook } from "../src/hook.js";
 
 const longLog = (n = 600, inject = "Error: database connection refused") => {
   const l = Array.from({ length: n }, (_, i) => `INFO request ${i} served in ${i % 13} ms`);
@@ -134,5 +134,33 @@ describe("PostToolUse Read", () => {
     const word = () => vocab[(seed = (seed * 48271) % 2147483647) % vocab.length];
     const prose = Array.from({ length: 200 }, () => Array.from({ length: 8 }, word).join(" ")).join("\n");
     expect(runHook(readEvent("/x/NOTES", prose), env)).toBeUndefined();
+  });
+});
+
+describe("Copilot postToolUse", () => {
+  const ev = (toolName: string, command: string, text: string) => ({
+    sessionId: "s", timestamp: 1, cwd: "/tmp", toolName, toolArgs: JSON.stringify({ command, description: "x" }),
+    toolResult: { resultType: "success", textResultForLlm: text },
+  });
+
+  it("replaces long shell output via modifiedResult, failures included", () => {
+    const { env } = setup();
+    const out = runCopilotHook(ev("bash", "npm test", longLog() + "<exited with exit code 1>"), env) as { modifiedResult: { resultType: string; textResultForLlm: string } };
+    expect(out.modifiedResult.resultType).toBe("success");
+    expect(out.modifiedResult.textResultForLlm).toContain("Error: database connection refused");
+    expect(out.modifiedResult.textResultForLlm).toContain("<exited with exit code 1>");
+  });
+
+  it("accepts PascalCase / snake_case input and object toolArgs", () => {
+    const { env } = setup();
+    const out = runCopilotHook({ hook_event_name: "PostToolUse", cwd: "/tmp", tool_name: "Bash", tool_input: { command: "make" }, tool_result: { result_type: "success", text_result_for_llm: longLog() } }, env);
+    expect(out).toBeDefined();
+  });
+
+  it("ignores other tools, short output and pass-through commands", () => {
+    const { env } = setup();
+    expect(runCopilotHook(ev("view", "", longLog()), env)).toBeUndefined();
+    expect(runCopilotHook(ev("bash", "ls", "a\nb\n"), env)).toBeUndefined();
+    expect(runCopilotHook(ev("bash", "git diff", longLog()), env)).toBeUndefined();
   });
 });
