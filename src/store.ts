@@ -106,6 +106,16 @@ export class Store {
     }
   }
 
+  remove(id: string): void {
+    for (const ext of [".log", ".json"]) {
+      try {
+        unlinkSync(join(this.capturesDir, id + ext));
+      } catch {
+        /* already gone */
+      }
+    }
+  }
+
   /** Raw lines [start, end] (1-based, inclusive) of a Capture. */
   slice(id: string, start: number, end: number): { lines: string[]; total: number } {
     if (!/^[0-9a-f]{6}$/.test(id)) throw new Error(`"${id}" is not a Capture id (6 hex characters, e.g. c7f2a1)`);

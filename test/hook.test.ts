@@ -44,6 +44,17 @@ describe("PostToolUse Bash", () => {
     expect(runHook(bashEvent("echo hi", "hi\n"), env)).toBeUndefined();
   });
 
+  it("never returns a Digest that is not clearly smaller than the raw output", () => {
+    const { root, env } = setup();
+    // 200 short, all-different lines: many lines, few characters, nothing to fold.
+    const text = Array.from({ length: 200 }, (_, i) => `k${i}=${(i * 7919) % 1000}`).join("\n");
+    expect(runHook(bashEvent("env", text), env)).toBeUndefined();
+    const varied = Array.from({ length: 300 }, (_, i) => `${["alpha", "bravo", "carol", "delta"][i % 4]} ${i * 31} unique-${(i * 104729) % 99991} ${"z".repeat(i % 37)}`).join("\n");
+    const out = runHook(bashEvent("x", varied), env) as Out | undefined;
+    if (out) expect(String(out.hookSpecificOutput.updatedToolOutput.stdout).length).toBeLessThanOrEqual(varied.length * 0.8);
+    else expect(require("node:fs").readdirSync(join(root, ".entropy-filter", "captures")).filter((f: string) => f.endsWith(".log"))).toHaveLength(0);
+  });
+
   it("reads the full text from persistedOutputPath when Claude Code truncated stdout", () => {
     const { root, env } = setup();
     const full = longLog(3000, "FATAL: the needle near the end");

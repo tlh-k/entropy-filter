@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "entropy-filter",
   "displayName": "Entropy Filter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Entropy-based output filter: run tests, builds and linters through entropy_exec to get errors, stack traces and summaries with repeated boilerplate folded away; raw output stays local.",
   "repository": "https://github.com/tlh-k/entropy-filter"
 }

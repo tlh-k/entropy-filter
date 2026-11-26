@@ -19,6 +19,7 @@ Usage:
   entropy-filter filter [file]              Digest a file or stdin (stores a Capture)
   entropy-filter slice <id> <start> <end>   Print raw lines of a Capture
   entropy-filter init --client <${CLIENTS.join("|")}> [--dir <project>]
+  entropy-filter replay [dir] [--days N]    What the hook would have saved on past Claude Code transcripts
   entropy-filter stats                      Digest / passthrough / slice counts for this project`;
 
 /** Read all of stdin. readFileSync(0) can throw EAGAIN on large piped input. */
@@ -97,6 +98,16 @@ async function main(argv: string[]): Promise<number> {
         return 2;
       }
       for (const line of init({ client, projectDir: arg(rest, "--dir") ?? process.cwd() })) console.log(line);
+      return 0;
+    }
+    case "replay": {
+      // Offline: what would the hook have done on real Claude Code transcripts?
+      const { replay } = await import("./replay.js");
+      const { homedir } = await import("node:os");
+      const { join } = await import("node:path");
+      const days = arg(rest, "--days");
+      const dir = rest[0] && !rest[0].startsWith("--") ? rest[0] : join(homedir(), ".claude", "projects");
+      console.log(replay(dir, days ? Number(days) : undefined));
       return 0;
     }
     case "stats":

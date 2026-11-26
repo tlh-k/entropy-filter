@@ -112,6 +112,7 @@ Yapılandırma isteğe bağlıdır. Ayarlar `.entropy-filter/config.json` dosyas
 ## Ölçüm
 
 - `npm test` **recall kapısını** da çalıştırır. 12 fikstür içerir: jest, pytest, cargo, tsc, gradle, ANSI renkli npm, ilerleme çubuklu container derlemesi, go panic, vitest, Türkçe ERP logu, karma TR/EN ve kısa temiz çıktı. Yerleştirilen her hata satırı Digest'te kelimesi kelimesine bulunmalı, yoksa build kırılır. Şu an Digest'ler ham boyutun %1,3–19,5'i kadar.
+- `entropy-filter replay --days 30` geçmiş Claude Code oturumlarını model çağırmadan filtreden geçirir. Ne kadar tasarruf edileceğini ve filtrenin geri kalan yerlerde neden devreye girmediğini gösterir. Yazarın son 30 gününde tüm Bash ve Read çıktısının **%7,5'ini** küçülttü. Uzun çıktının çoğunu ajan zaten kendisi kesmişti (`| head`, `| tail`, %21) ya da çıktı dosya içeriğiydi (`cat`, `sed -n`, `git diff`, %57). Tasarruf mütevazı ve çoğunlukla uzun derleme/test çıktısını kesmeden çalıştıran oturumlarda.
 - `node bench/live-ab.mjs --runs 5` aynı görevi `claude -p` ile eklentili ve eklentisiz çalıştırır. Token, maliyet, tur sayısı, Slice okuma ve tekrarlanan komut sayısını karşılaştırır. `claude-haiku-5-5` ile ilk tek koşu: iki koşuda da 5 bulgunun 5'i bulundu; maliyet eklentisiz $0.0135, eklentili $0.0070. Tek koşu sonuç sayılmaz; güvenmeden önce tekrarla.
 
 ## Geliştirme

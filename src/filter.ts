@@ -6,7 +6,13 @@ import type { Store } from "./store.js";
 
 export const SLICE_HINT = "omitted ranges: entropy_read_slice(capture_id, start_line, end_line)";
 
+/** Below this a Digest (header + Elisions) cannot pay for itself, however many lines there are. */
+export const MIN_FILTER_CHARS = 2000;
+/** A Digest must shrink its stream by at least this share, or the raw text is shown instead. */
+export const MIN_SAVING = 0.2;
+
 export function isShort(text: string, cfg: Config): boolean {
+  if (text.length <= MIN_FILTER_CHARS) return true;
   return text.length <= cfg.maxDigestChars && splitLines(text).length <= cfg.shortLines;
 }
 
@@ -21,6 +27,12 @@ export function captureAndDigest(text: string, source: string, budget: number, c
   const header = `[entropy-filter ${meta.id} · ${source} · ${meta.lines}→{kept} lines · ${SLICE_HINT}]`;
   const d = buildDigest(text, { budget, header, halo: cfg.halo });
   const out = d.text.replace("{kept}", String(d.keptLines));
+  if (out.length > text.length * (1 - MIN_SAVING)) {
+    // Not worth it: never hand back something barely smaller (or larger) than the raw text.
+    store.remove(meta.id);
+    store.stat({ kind: "passthrough", reason: "no-gain", source, command, rawChars: text.length });
+    return { text };
+  }
   store.stat({ kind: "digest", capture: meta.id, source, command, rawChars: text.length, digestChars: out.length, lines: d.totalLines, kept: d.keptLines });
   return { text: out, captureId: meta.id };
 }
@@ -48,5 +60,6 @@ export function filterStreams(
   if (!(isShort(stdout, cfg) && stdout.length <= remaining)) {
     out = captureAndDigest(stdout, "stdout", Math.min(computeBudget(stdout.length, cfg.budgetRatio, cap), remaining), cfg, store, command);
   }
+  if (out.captureId === undefined && err.captureId === undefined) return undefined;
   return { stdout: out, stderr: err };
 }

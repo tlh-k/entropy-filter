@@ -77,7 +77,7 @@ Kancası olmayan istemcilerde test/derleme/lint komutları kurallar aracılığ�
 
 ### 4.1 Kısa çıktı geçişi
 
-Çıktı **≤30 satır ve ≤8.000 karakter** ise hiç dokunulmaz (sıfır kayıp, Capture yok). Az satırlı ama
+Çıktı **≤2.000 karakter** ise ya da **≤30 satır ve ≤8.000 karakter** ise hiç dokunulmaz (sıfır kayıp, Capture yok). Az satırlı ama
 çok uzun çıktı (minify JS, tek satır JSON) filtreye girer.
 
 ### 4.2 Gürültü kapısı (satır numarası korunur)
@@ -196,6 +196,34 @@ filtreleme CLI'dadır: `entropy-filter filter < build.log`.
 - Gözlem: Haiku, SKILL.md'ye rağmen `entropy_exec` yerine Bash seçti (başarısız komutun sonuna
   `; echo $?` ekleyerek kancanın devreye girmesini sağladı). Başarısız komutlarda kancanın kör noktası
   (ADR-0003) bu yüzden gerçek bir risktir; v2'de opsiyonel sarmalama A/B verisiyle değerlendirilir.
+
+### 8.2 Gerçek kullanım: transcript replay (`entropy-filter replay`)
+
+`entropy-filter replay [--days N]` geçmiş Claude Code oturumlarındaki her Bash/Read sonucunu filtreden
+geçirir; model çağrısı yapmaz. 2026-11-27 itibarıyla son 30 gün (166 oturum, 4.171 Bash+Read sonucu,
+7,9 M karakter):
+
+| Sonuç | Pay | Açıklama |
+| --- | --- | --- |
+| digest | %7,1 | Kancanın küçülttüğü çıktı (557 bin → 69 bin karakter) |
+| self-truncated | %21,0 | Model komutu zaten `\| head`, `\| tail`, `\| grep` ile kısaltmış |
+| passthrough-cmd | %56,6 | `cat`, `sed -n`, `git diff` gibi içerik okuyan komutlar |
+| read-skip | %8,8 | Kaynak kod / hedefli Read |
+| failed-blind | %1,8 | Sıfırdan farklı çıkış; zaten kısa (kazanılabilecek: ~600 karakter) |
+
+Sonuç: Bash+Read metninin **%7,5'i** kazanılıyor; oturum faturasının çok küçük bir kısmı. Modeller uzun
+çıktıyı çoğunlukla kendileri `| head`/`| tail` ile kesiyor. Başarısız komut kör noktası (ADR-0003)
+pratikte önemsiz çıktı: başarısız çıktılar zaten kısa. Bu nedenle opsiyonel komut sarmalama
+**yapılmayacak**.
+
+zerpro test1 A/B'sinde (Sonnet, 2+2 koşu) "on" kolunda filtre **hiç tetiklenmedi**: her `mvn` çağrısı
+`| tail -60` veya `| grep` ile kısaltılmıştı, ilk çağrı başarısızdı, `entropy_exec` ve skill
+kullanılmadı. Kollar arasındaki maliyet farkı tur sayısı varyansından (8–13 tur) geliyor; eklentinin
+sabit yükü istek başına ~200 token (önbellekten okunur).
+
+**Kazanç yoksa geçiş:** Digest ham metni en az %20 küçültmüyorsa ham metin gösterilir ve Capture
+silinir; 2.000 karakterin altındaki çıktıya satır sayısından bağımsız olarak dokunulmaz (replay'de
+Digest'in ham metinden uzun olduğu durumlar bulundu).
 
 ## 9. Güvenilirlik
 
