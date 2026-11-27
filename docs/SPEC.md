@@ -225,6 +225,31 @@ sabit yükü istek başına ~200 token (önbellekten okunur).
 silinir; 2.000 karakterin altındaki çıktıya satır sayısından bağımsız olarak dokunulmaz (replay'de
 Digest'in ham metinden uzun olduğu durumlar bulundu).
 
+### 8.3 Gerçek proje A/B/C (Maven, `claude-sonnet-5-5`, v0.2.1, 45 koşu)
+
+`bench/ab/` harness'i; 3 senaryo × 3 kol (`off`, `on`, `on+hint`) × 5 koşu, her koşu temiz worktree.
+S1: CI logu dosyadan analiz; S2: kırık testleri düzelt; S3: yeşil build çıktısındaki uyarıyı bul.
+
+| Senaryo | Kol | Geçti | Filtre çalıştı | Medyan bağlam karakteri | Medyan maliyet |
+| --- | --- | --- | --- | --- | --- |
+| S1 | off / on / on+hint | 5/5 · 5/5 · 5/5 | 0 · 0 · 5 | 22.188 · 17.812 · 27.496 | $0,191 · $0,176 · $0,208 |
+| S2 | off / on / on+hint | 5/5 · 5/5 · 5/5 | 0 · 0 · 5 | 15.440 · 24.783 · 31.551 | $0,175 · $0,199 · $0,196 |
+| S3 | off / on / on+hint | 4/5 · 5/5 · 5/5 | 0 · 0 · 5 | 3.522 · 4.180 · 9.021 | $0,123 · $0,123 · $0,119 |
+
+- `on` kolunda filtre 15 koşunun **hiçbirinde** devreye girmedi: Sonnet her uzun çıktıyı kendisi
+  `| grep`, `| tail`, `sed -n` ile kesti; S1'de log dosyasını Read yerine grep'ledi. `on` ile `off`
+  arasında hiçbir senaryoda ölçülebilir fark yok (bootstrap %95 GA sıfırı içeriyor).
+- `on+hint` kolunda model `entropy_exec` kullandı ama Digest (~7,4 bin karakter) modelin kendi grep'inden
+  (~2 bin) büyüktü: S2'de bağlam karakteri anlamlı biçimde **arttı** (+16 bin, GA [4 bin, 26 bin]);
+  maliyette ölçülebilir fark yok. Başarı oranı düşmedi, yeniden getirme ~0.
+- Q6 kararları: eklentinin pasif yükü ölçülebilir değil → kalır; hint `init`'e **eklenmez**.
+- v0.2.2: yeşil build Digest'leri küçültüldü (çerçeve yığın satırları atlanır, `[INFO] ----` gürültü
+  sayılır, nadir satır dolgusu 1.500 karakterle sınırlı): zerpro yeşil build 7,3 → 4,0 bin karakter.
+  `on+hint` v0.2.2 ile yeniden koşuldu (15 koşu, aynı `off` koşularına karşı): medyan bağlam karakteri
+  S1 27,5 → 26,5 bin, S2 31,6 → 26,2 bin, S3 9,0 → 6,3 bin. S2'deki anlamlı artış kayboldu; üç senaryoda
+  da `off` ile fark artık ölçülebilir değil, başarı 15/15. Digest hâlâ modelin kendi grep'inden kazançlı
+  değil: Sonnet sınıfı bir modelde eklentinin token kazancı yok, zararı da yok.
+
 ## 9. Güvenilirlik
 
 - Kanca fail-open: ayrıştırma, bellek, izin veya zaman hatasında hiçbir çıktı vermeden 0 ile çıkar.
