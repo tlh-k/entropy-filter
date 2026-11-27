@@ -1,6 +1,6 @@
 {
   "name": "entropy-filter",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Entropy-based output filter: replaces long Bash and log-file output with a Digest that keeps errors, stack traces and summaries, and keeps the raw text locally for targeted reads.",
   "author": { "name": "tlh-k" },
   "repository": "https://github.com/tlh-k/entropy-filter",

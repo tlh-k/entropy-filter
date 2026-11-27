@@ -239,8 +239,9 @@ function clipLine(line, max = MAX_LINE_CHARS) {
   return `${line.slice(0, keep)}\u2026\u27EA+${line.length - 2 * keep} chars\u27EB\u2026${line.slice(-keep)}`;
 }
 function isNoise(clean) {
-  const t = clean.trim();
+  const t = clean.replace(/^\s*\[(?:INFO|DEBUG|TRACE)\]\s?/, "").trim();
   if (t === "") return true;
+  if (t.length >= 3 && /^[-=_*~#.]+$/.test(t)) return true;
   if (SPINNER.test(t)) return true;
   return PROGRESS_BAR.test(t) && t.replace(PROGRESS_BAR, "").trim().length < 40;
 }
@@ -272,10 +273,13 @@ function isSignal(clean) {
   const masked = fold(clean).replace(PATHLIKE, " ").replace(ZERO_COUNT, " ");
   return SIGNAL.test(masked);
 }
+function isFrameworkFrame(clean) {
+  return FRAMEWORK_FRAME.test(clean);
+}
 function isStackFrame(clean) {
   return clean.trim() !== "" && STACK_FRAME.test(clean);
 }
-var ANSI, MAX_LINE_CHARS, SPINNER, PROGRESS_BAR, TEMPLATE_RULES, SIGNAL_WORDS, esc, SIGNAL, SIGNAL_SYMBOLS, ZERO_COUNT, PATHLIKE, STACK_FRAME;
+var ANSI, MAX_LINE_CHARS, SPINNER, PROGRESS_BAR, TEMPLATE_RULES, SIGNAL_WORDS, esc, SIGNAL, SIGNAL_SYMBOLS, ZERO_COUNT, PATHLIKE, STACK_FRAME, FRAMEWORK_FRAME;
 var init_lines = __esm({
   "src/lines.ts"() {
     "use strict";
@@ -366,6 +370,7 @@ var init_lines = __esm({
     );
     PATHLIKE = /(?:[A-Za-z]:)?[\w.@~+-]*[/\\][\w.@~+/\\:-]*/g;
     STACK_FRAME = /^\s+at\s|^\s*File ".*", line \d+|^\s+\S|^\s*\.\.\.\s*\d+ more|^\s*Caused by:|^\s*\|/;
+    FRAMEWORK_FRAME = /^\s*at\s+(?:(?:app\/\/|java\.base\/|jdk\.\w+\/)?(?:java|javax|jdk|sun|com\.sun|org\.junit|junit|org\.apache\.maven|org\.gradle|org\.testng|kotlin|kotlinx|scala|org\.springframework\.(?:test|aop|cglib))\.|node:internal|<anonymous>|process\.processTicksAndRejections)/;
   }
 });
 
@@ -419,9 +424,10 @@ function findSignals(lines) {
   chosen.sort((a, b) => a - b);
   return chosen.map((at) => {
     const stack = [];
-    for (let j = at + 1; j < lines.length && stack.length < STACK_MAX; j++) {
-      if (!isStackFrame(lines[j].display)) break;
-      stack.push(j);
+    for (let j = at + 1; j < lines.length && j <= at + STACK_SCAN && stack.length < STACK_MAX; j++) {
+      const l = lines[j].display;
+      if (!isStackFrame(l)) break;
+      if (!isFrameworkFrame(l)) stack.push(j);
     }
     return { at, stack };
   });
@@ -458,7 +464,7 @@ function choose(lines, opts) {
   ]) {
     const sel2 = new Selection(lines, opts.header);
     for (const i of [...forcedSet(lines, signals, halo, stackMax), ...tail]) sel2.add(i);
-    if (sel2.cost <= opts.budget) return fill(lines, sel2, opts.budget);
+    if (sel2.cost <= opts.budget) return fill(lines, sel2, Math.min(opts.budget, sel2.cost + FILL_MAX));
   }
   const sel = new Selection(lines, opts.header);
   const order = bothEnds(signals.map((s) => s.at));
@@ -526,16 +532,18 @@ function buildDigest(text, options) {
   }
   return { text: out, totalLines: lines.length, keptLines: r.kept, elisions: r.elisions };
 }
-var ELISION_RESERVE, STACK_MAX, SIGNAL_REPEATS, SNIPPET_MAX, RARE_MAX, Selection;
+var ELISION_RESERVE, STACK_MAX, STACK_SCAN, SIGNAL_REPEATS, SNIPPET_MAX, RARE_MAX, FILL_MAX, Selection;
 var init_digest = __esm({
   "src/digest.ts"() {
     "use strict";
     init_lines();
     ELISION_RESERVE = 96;
-    STACK_MAX = 20;
+    STACK_MAX = 8;
+    STACK_SCAN = 80;
     SIGNAL_REPEATS = 2;
     SNIPPET_MAX = 60;
     RARE_MAX = 2;
+    FILL_MAX = 1500;
     Selection = class {
       constructor(lines, header) {
         this.lines = lines;
@@ -747,7 +755,7 @@ var VERSION;
 var init_version = __esm({
   "src/version.ts"() {
     "use strict";
-    VERSION = "0.2.1";
+    VERSION = "0.2.2";
   }
 });
 

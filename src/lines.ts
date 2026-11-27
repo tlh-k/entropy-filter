@@ -34,8 +34,10 @@ const PROGRESS_BAR = /[[(|]?[=#>█▓▒░■□━─\-.\s]{6,}[\])|]?\s*\d{1
 
 /** Lines that carry nothing on their own: blanks, spinners, progress bars. */
 export function isNoise(clean: string): boolean {
-  const t = clean.trim();
+  // An INFO/DEBUG tag alone, or a tag plus a rule ("[INFO] -----"), carries nothing.
+  const t = clean.replace(/^\s*\[(?:INFO|DEBUG|TRACE)\]\s?/, "").trim();
   if (t === "") return true;
+  if (t.length >= 3 && /^[-=_*~#.]+$/.test(t)) return true;
   if (SPINNER.test(t)) return true;
   return PROGRESS_BAR.test(t) && t.replace(PROGRESS_BAR, "").trim().length < 40;
 }
@@ -114,6 +116,13 @@ export function isSignal(clean: string): boolean {
 }
 
 const STACK_FRAME = /^\s+at\s|^\s*File ".*", line \d+|^\s+\S|^\s*\.\.\.\s*\d+ more|^\s*Caused by:|^\s*\|/;
+
+// Frames from the runtime, test framework or build tool: they say how the code was called, not where it broke.
+const FRAMEWORK_FRAME = /^\s*at\s+(?:(?:app\/\/|java\.base\/|jdk\.\w+\/)?(?:java|javax|jdk|sun|com\.sun|org\.junit|junit|org\.apache\.maven|org\.gradle|org\.testng|kotlin|kotlinx|scala|org\.springframework\.(?:test|aop|cglib))\.|node:internal|<anonymous>|process\.processTicksAndRejections)/;
+
+export function isFrameworkFrame(clean: string): boolean {
+  return FRAMEWORK_FRAME.test(clean);
+}
 
 /** A line that continues a stack trace or an indented failure block. */
 export function isStackFrame(clean: string): boolean {

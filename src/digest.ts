@@ -2,7 +2,7 @@
  * The filter: score each line of a Capture, pick what fits the Budget, render the Digest.
  * Deterministic and pure; see docs/SPEC.md §4 and ADR-0001.
  */
-import { clipLine, cleanLine, isNoise, isSignal, isStackFrame, prefixOf, splitLines, templateOf, wordEntropy } from "./lines.js";
+import { clipLine, cleanLine, isFrameworkFrame, isNoise, isSignal, isStackFrame, prefixOf, splitLines, templateOf, wordEntropy } from "./lines.js";
 
 export interface DigestOptions {
   /** Size ceiling for the whole Digest, header included. */
@@ -25,10 +25,17 @@ export interface Digest {
 }
 
 const ELISION_RESERVE = 96; // upper bound on one rendered Elision, used while choosing lines
-const STACK_MAX = 20; // stack frames that may follow one Signal Line
+const STACK_MAX = 8; // stack-trace lines kept after one Signal Line (framework frames skipped)
+const STACK_SCAN = 80; // how far a stack trace is followed
 const SIGNAL_REPEATS = 2; // occurrences of the same Signal Template forced from the start (plus the last)
 const SNIPPET_MAX = 60;
-const RARE_MAX = 2; // a Template seen more often than this is folded, never used to fill
+const RARE_MAX = 2;
+/**
+ * Room for rare-but-not-signal lines on top of the forced ones (Signal Lines, Halos, tail).
+ * Measured on Claude Code A/B runs: an agent's own `| grep` of a build log is ~2,000 characters, so a
+ * Digest that fills all 8,000 with "rare" lines costs more than it saves (docs/SPEC.md §8.3).
+ */
+export const FILL_MAX = 1500; // a Template seen more often than this is folded, never used to fill
 
 interface Line {
   display: string;
@@ -123,9 +130,10 @@ function findSignals(lines: Line[]): { at: number; stack: number[] }[] {
   chosen.sort((a, b) => a - b);
   return chosen.map((at) => {
     const stack: number[] = [];
-    for (let j = at + 1; j < lines.length && stack.length < STACK_MAX; j++) {
-      if (!isStackFrame(lines[j]!.display)) break;
-      stack.push(j);
+    for (let j = at + 1; j < lines.length && j <= at + STACK_SCAN && stack.length < STACK_MAX; j++) {
+      const l = lines[j]!.display;
+      if (!isStackFrame(l)) break;
+      if (!isFrameworkFrame(l)) stack.push(j);
     }
     return { at, stack };
   });
@@ -168,7 +176,7 @@ function choose(lines: Line[], opts: Required<DigestOptions>): Selection {
   ] as const) {
     const sel = new Selection(lines, opts.header);
     for (const i of [...forcedSet(lines, signals, halo, stackMax), ...tail]) sel.add(i);
-    if (sel.cost <= opts.budget) return fill(lines, sel, opts.budget);
+    if (sel.cost <= opts.budget) return fill(lines, sel, Math.min(opts.budget, sel.cost + FILL_MAX));
   }
   // Even bare Signal Lines overflow: keep them from both ends, the tail right after the first and last.
   const sel = new Selection(lines, opts.header);

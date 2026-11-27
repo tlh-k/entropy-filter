@@ -205,6 +205,31 @@ function emit(name, lines, needles) {
   emit("all-pass-vitest", l, ["Test Files  700 passed (700)", "Tests  9188 passed (9188)", "Duration  31.40s"]);
 }
 
+// 13. Maven, all green, but passing tests log expected exceptions with deep JUnit stacks.
+// The Digest must keep the overall summary and stay small (no framework frames, no rule lines).
+{
+  const l = ["[INFO] Scanning for projects...", "[INFO] ", "[INFO] ------------------< com.acme:shop >------------------", "[INFO] Building shop 2.0", "[INFO] --------------------------------[ war ]---------------------------------"];
+  for (let i = 0; i < 12; i++) l.push(`[WARNING] /work/src/main/java/com/acme/legacy/Util${i}.java:[${int(10, 400)},${int(5, 40)}] deprecated item is not annotated with @Deprecated`);
+  l.push("[INFO] --- surefire:3.5.4:test (default-test) @ shop ---", "[INFO] ", "[INFO] -------------------------------------------------------", "[INFO]  T E S T S", "[INFO] -------------------------------------------------------");
+  const junit = () => Array.from({ length: 40 }, (_, k) => `\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:${100 + k})`);
+  for (let c = 0; c < 60; c++) {
+    l.push(`[INFO] Running com.acme.shop.service.Service${c}Test`);
+    if (c === 21 || c === 44) {
+      l.push(
+        `Nov 27, 2026 2:51:30 AM com.acme.shop.files.AttachmentService remove`,
+        `WARNING: attachment could not be deleted, left orphaned: B00${c}/scan.pdf`,
+        `java.lang.IllegalStateException: storage unreachable: B00${c}/scan.pdf`,
+        `\tat com.acme.shop.files.FakeStorage.delete(FakeStorage.java:${c + 100})`,
+        `\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1596)`,
+        ...junit(),
+      );
+    }
+    l.push(`[INFO] Tests run: ${int(1, 30)}, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.0${int(10, 99)} s -- in com.acme.shop.service.Service${c}Test`);
+  }
+  l.push("[INFO] ", "[INFO] Results:", "[INFO] ", "[INFO] Tests run: 658, Failures: 0, Errors: 0, Skipped: 0", "[INFO] ", "[INFO] ------------------------------------------------------------------------", "[INFO] BUILD SUCCESS", "[INFO] ------------------------------------------------------------------------", "[INFO] Total time:  6.052 s", "[INFO] Finished at: 2026-11-27T02:51:31+03:00", "[INFO] ------------------------------------------------------------------------");
+  emit("maven-green-logged-exceptions", l, ["Tests run: 658, Failures: 0, Errors: 0, Skipped: 0", "BUILD SUCCESS", "storage unreachable: B0021/scan.pdf", "FakeStorage.delete(FakeStorage.java:121)"]);
+}
+
 // 12. Short, clean output: must pass through byte for byte.
 {
   const l = ["Already up to date.", "On branch main", "Your branch is up to date with 'origin/main'.", "", "nothing to commit, working tree clean"];

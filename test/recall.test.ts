@@ -14,7 +14,7 @@ const names = readdirSync(dir)
   .map((f) => f.slice(0, -4));
 
 // Per-fixture ceiling on Digest size as a share of the raw output. Default 0.5.
-const MAX_RATIO: Record<string, number> = { "all-pass-vitest": 0.1, "jest-fail-middle": 0.25, "tr-erp-log": 0.1, "mixed-tr-en": 0.1 };
+const MAX_RATIO: Record<string, number> = { "all-pass-vitest": 0.1, "jest-fail-middle": 0.25, "tr-erp-log": 0.1, "mixed-tr-en": 0.1, "maven-green-logged-exceptions": 0.15 };
 
 const report: string[] = [];
 
@@ -47,6 +47,13 @@ describe("recall gate", () => {
     const raw = readFileSync(join(dir, "short-clean.txt"), "utf8");
     const root = mkdtempSync(join(tmpdir(), "ef-short-"));
     expect(filterStreams({ stdout: raw, stderr: "" }, DEFAULTS, new Store(root))).toBeUndefined();
+  });
+
+  it("keeps a passing Maven Digest small: no framework frames, no rule lines", () => {
+    const raw = readFileSync(join(dir, "maven-green-logged-exceptions.txt"), "utf8");
+    const res = filterStreams({ stdout: raw, stderr: "" }, DEFAULTS, new Store(mkdtempSync(join(tmpdir(), "ef-mvn-"))))!;
+    expect(res.stdout.text).not.toMatch(/^\s*at org\.junit/m);
+    expect(res.stdout.text.length).toBeLessThan(3000);
   });
 
   it("prints the compression report", () => console.log("\n" + report.join("\n")));

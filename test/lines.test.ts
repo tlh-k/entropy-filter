@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cleanLine, clipLine, isNoise, isSignal, templateOf } from "../src/lines.js";
+import { cleanLine, clipLine, isFrameworkFrame, isNoise, isSignal, templateOf } from "../src/lines.js";
 
 describe("cleanLine", () => {
   it("strips ANSI colours and keeps only the last \\r rewrite", () => {
@@ -21,7 +21,7 @@ describe("clipLine", () => {
 });
 
 describe("isNoise", () => {
-  it.each(["", "   ", "⠋", "[=====>     ] 45%", "45% |██████████      |"])("noise: %j", (l) => expect(isNoise(l)).toBe(true));
+  it.each(["[INFO] ", "[INFO] ------------------------------------------------------------------------", "", "   ", "⠋", "[=====>     ] 45%", "45% |██████████      |"])("noise: %j", (l) => expect(isNoise(l)).toBe(true));
   it.each(["PASS src/a.test.ts", "Tests: 1 failed"])("not noise: %j", (l) => expect(isNoise(l)).toBe(false));
 });
 
@@ -60,4 +60,16 @@ describe("isSignal", () => {
     "INFO Fatura #12 işlendi",
     "errorHandler registered",
   ])("not a signal: %s", (l) => expect(isSignal(l)).toBe(false));
+});
+
+describe("isFrameworkFrame", () => {
+  it.each([
+    "\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:1)",
+    "\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1596)",
+    "        at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:151)",
+    "    at node:internal/process/task_queues:95:5",
+  ])("framework: %s", (l) => expect(isFrameworkFrame(l)).toBe(true));
+  it.each(["\tat com.acme.shop.files.FakeStorage.delete(FakeStorage.java:121)", "    at Object.<anonymous> (src/a.test.ts:42:23)"])("project: %s", (l) =>
+    expect(isFrameworkFrame(l)).toBe(false),
+  );
 });
